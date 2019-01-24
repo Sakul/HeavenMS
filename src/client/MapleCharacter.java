@@ -954,64 +954,142 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
     }
 
     public void setMasteries(int jobId) {
-        int[] skills = new int[4];
+        int[] skills = new int[15];
         for (int i = 0; i > skills.length; i++) {
             skills[i] = 0; //that initialization meng
         }
         if (jobId == 112) {
             skills[0] = Hero.ACHILLES;
-            skills[1] = Hero.MONSTER_MAGNET;
+            skills[1] = Hero.ADVANCED_COMBO;
             skills[2] = Hero.BRANDISH;
+            skills[3] = Hero.ENRAGE;
+            skills[4] = Hero.GUARDIAN;
+            skills[5] = Hero.HEROS_WILL;
+            skills[6] = Hero.MAPLE_WARRIOR;
+            skills[7] = Hero.MONSTER_MAGNET;
+            skills[8] = Hero.RUSH;
+            skills[9] = Hero.STANCE;
         } else if (jobId == 122) {
             skills[0] = Paladin.ACHILLES;
-            skills[1] = Paladin.MONSTER_MAGNET;
+            skills[1] = Paladin.ADVANCED_CHARGE;
             skills[2] = Paladin.BLAST;
+            skills[3] = Paladin.BW_HOLY_CHARGE;
+            skills[4] = Paladin.GUARDIAN;
+            skills[5] = Paladin.HEAVENS_HAMMER;
+            skills[6] = Paladin.HEROS_WILL;
+            skills[7] = Paladin.MAPLE_WARRIOR;
+            skills[8] = Paladin.MONSTER_MAGNET;
+            skills[9] = Paladin.RUSH;
+            skills[10] = Paladin.STANCE;
+            skills[11] = Paladin.SWORD_HOLY_CHARGE;
         } else if (jobId == 132) {
-            skills[0] = DarkKnight.BEHOLDER;
-            skills[1] = DarkKnight.ACHILLES;
-            skills[2] = DarkKnight.MONSTER_MAGNET;
+            skills[0] = DarkKnight.ACHILLES;
+            skills[1] = DarkKnight.AURA_OF_BEHOLDER;
+            skills[2] = DarkKnight.BEHOLDER;
+            skills[3] = DarkKnight.BERSERK;
+            skills[4] = DarkKnight.HEROS_WILL;
+            skills[5] = DarkKnight.HEX_OF_BEHOLDER;
+            skills[6] = DarkKnight.MAPLE_WARRIOR;
+            skills[7] = DarkKnight.MONSTER_MAGNET;
+            skills[8] = DarkKnight.RUSH;
+            skills[9] = DarkKnight.STANCE;
         } else if (jobId == 212) {
             skills[0] = FPArchMage.BIG_BANG;
-            skills[1] = FPArchMage.MANA_REFLECTION;
-            skills[2] = FPArchMage.PARALYZE;
+            skills[1] = FPArchMage.ELQUINES;
+            skills[2] = FPArchMage.FIRE_DEMON;
+            skills[3] = FPArchMage.HEROS_WILL;
+            skills[4] = FPArchMage.INFINITY;
+            skills[5] = FPArchMage.MANA_REFLECTION;
+            skills[6] = FPArchMage.MAPLE_WARRIOR;
+            skills[7] = FPArchMage.METEOR_SHOWER;
+            skills[8] = FPArchMage.PARALYZE;
         } else if (jobId == 222) {
             skills[0] = ILArchMage.BIG_BANG;
-            skills[1] = ILArchMage.MANA_REFLECTION;
+            skills[1] = ILArchMage.BLIZZARD;
             skills[2] = ILArchMage.CHAIN_LIGHTNING;
+            skills[3] = ILArchMage.HEROS_WILL;
+            skills[4] = ILArchMage.ICE_DEMON;
+            skills[5] = ILArchMage.IFRIT;
+            skills[6] = ILArchMage.INFINITY;
+            skills[7] = ILArchMage.MANA_REFLECTION;
+            skills[8] = ILArchMage.MAPLE_WARRIOR;
         } else if (jobId == 232) {
-            skills[0] = Bishop.BIG_BANG;
-            skills[1] = Bishop.MANA_REFLECTION;
-            skills[2] = Bishop.HOLY_SHIELD;
+            skills[0] = Bishop.BAHAMUT;
+            skills[1] = Bishop.BIG_BANG;
+            skills[2] = Bishop.GENESIS;
+            skills[3] = Bishop.HEROS_WILL;
+            skills[4] = Bishop.HOLY_SHIELD;
+            skills[5] = Bishop.INFINITY;
+            skills[6] = Bishop.MANA_REFLECTION;
+            skills[7] = Bishop.MAPLE_WARRIOR;
+            skills[8] = Bishop.RESURRECTION;
         } else if (jobId == 312) {
             skills[0] = Bowmaster.BOW_EXPERT;
-            skills[1] = Bowmaster.HAMSTRING;
-            skills[2] = Bowmaster.SHARP_EYES;
+            skills[1] = Bowmaster.CONCENTRATE;
+            skills[2] = Bowmaster.HAMSTRING;
+            skills[3] = Bowmaster.HEROS_WILL;
+            skills[4] = Bowmaster.HURRICANE;
+            skills[5] = Bowmaster.MAPLE_WARRIOR;
+            skills[6] = Bowmaster.PHOENIX;
+            skills[7] = Bowmaster.SHARP_EYES;
         } else if (jobId == 322) {
-            skills[0] = Marksman.MARKSMAN_BOOST;
-            skills[1] = Marksman.BLIND;
-            skills[2] = Marksman.SHARP_EYES;
+            skills[0] = Marksman.BLIND;
+            skills[1] = Marksman.FROST_PREY;
+            skills[2] = Marksman.HEROS_WILL;
+            skills[3] = Marksman.MAPLE_WARRIOR;
+            skills[4] = Marksman.MARKSMAN_BOOST;
+            skills[5] = Marksman.PIERCING_ARROW;
+            skills[6] = Marksman.SHARP_EYES;
+            skills[7] = Marksman.SNIPE;
         } else if (jobId == 412) {
-            skills[0] = NightLord.SHADOW_STARS;
-            skills[1] = NightLord.SHADOW_SHIFTER;
-            skills[2] = NightLord.VENOMOUS_STAR;
+            skills[0] = NightLord.HEROS_WILL;
+            skills[1] = NightLord.MAPLE_WARRIOR;
+            skills[2] = NightLord.NINJA_AMBUSH;
+            skills[3] = NightLord.NINJA_STORM;
+            skills[4] = NightLord.SHADOW_SHIFTER;
+            skills[5] = NightLord.SHADOW_STARS;
+            skills[6] = NightLord.TAUNT;
+            skills[7] = NightLord.TRIPLE_THROW;
+            skills[8] = NightLord.VENOMOUS_STAR;
         } else if (jobId == 422) {
-            skills[0] = Shadower.SHADOW_SHIFTER;
-            skills[1] = Shadower.VENOMOUS_STAB;
-            skills[2] = Shadower.BOOMERANG_STEP;
+            skills[0] = Shadower.ASSASSINATE;
+            skills[1] = Shadower.BOOMERANG_STEP;
+            skills[2] = Shadower.HEROS_WILL;
+            skills[3] = Shadower.MAPLE_WARRIOR;
+            skills[4] = Shadower.NINJA_AMBUSH;
+            skills[5] = Shadower.SHADOW_SHIFTER;
+            skills[6] = Shadower.SMOKE_SCREEN;
+            skills[7] = Shadower.TAUNT;
+            skills[8] = Shadower.VENOMOUS_STAB;
         } else if (jobId == 512) {
             skills[0] = Buccaneer.BARRAGE;
-            skills[1] = Buccaneer.ENERGY_ORB;
-            skills[2] = Buccaneer.SPEED_INFUSION;
-            skills[3] = Buccaneer.DRAGON_STRIKE;
+            skills[1] = Buccaneer.DEMOLITION;
+            skills[2] = Buccaneer.DRAGON_STRIKE;
+            skills[3] = Buccaneer.ENERGY_ORB;
+            skills[4] = Buccaneer.MAPLE_WARRIOR;
+            skills[5] = Buccaneer.PIRATES_RAGE;
+            skills[6] = Buccaneer.SNATCH;
+            skills[7] = Buccaneer.SPEED_INFUSION;
+            skills[8] = Buccaneer.SUPER_TRANSFORMATION;
+            skills[9] = Buccaneer.TIME_LEAP;
         } else if (jobId == 522) {
-            skills[0] = Corsair.ELEMENTAL_BOOST;
-            skills[1] = Corsair.BULLSEYE;
-            skills[2] = Corsair.WRATH_OF_THE_OCTOPI;
-            skills[3] = Corsair.RAPID_FIRE;
+            skills[0] = Corsair.AERIAL_STRIKE;
+            skills[1] = Corsair.BATTLE_SHIP;
+            skills[2] = Corsair.BULLSEYE;
+            skills[3] = Corsair.ELEMENTAL_BOOST;
+            skills[4] = Corsair.HYPNOTIZE;
+            skills[5] = Corsair.MAPLE_WARRIOR;
+            skills[6] = Corsair.RAPID_FIRE;
+            skills[7] = Corsair.SPEED_INFUSION;
+            skills[8] = Corsair.WRATH_OF_THE_OCTOPI;
         } else if (jobId == 2112) {
-            skills[0] = Aran.OVER_SWING;
-            skills[1] = Aran.HIGH_MASTERY;
-            skills[2] = Aran.FREEZE_STANDING;
+            skills[1] = Aran.MAPLE_WARRIOR;
+            skills[2] = Aran.HIGH_MASTERY;
+            skills[3] = Aran.OVER_SWING;
+            skills[4] = Aran.COMBO_TEMPEST;
+            skills[5] = Aran.COMBO_BARRIER;
+            skills[6] = Aran.FREEZE_STANDING;
+            skills[7] = Aran.HEROS_WILL;
         } else if (jobId == 2217) {
             skills[0] = Evan.MAPLE_WARRIOR;
             skills[1] = Evan.ILLUSION;
@@ -2559,21 +2637,22 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
     }
 
     private static boolean dispelSkills(int skillid) {
-        switch (skillid) {
-            case DarkKnight.BEHOLDER:
-            case FPArchMage.ELQUINES:
-            case ILArchMage.IFRIT:
-            case Priest.SUMMON_DRAGON:
-            case Bishop.BAHAMUT:
-            case Ranger.PUPPET:
-            case Ranger.SILVER_HAWK:
-            case Sniper.PUPPET:
-            case Sniper.GOLDEN_EAGLE:
-            case Hermit.SHADOW_PARTNER:
-                return true;
-            default:
-                return false;
-        }
+        // switch (skillid) {
+        //     case DarkKnight.BEHOLDER:
+        //     case FPArchMage.ELQUINES:
+        //     case ILArchMage.IFRIT:
+        //     case Priest.SUMMON_DRAGON:
+        //     case Bishop.BAHAMUT:
+        //     case Ranger.PUPPET:
+        //     case Ranger.SILVER_HAWK:
+        //     case Sniper.PUPPET:
+        //     case Sniper.GOLDEN_EAGLE:
+        //     case Hermit.SHADOW_PARTNER:
+        //         return true;
+        //     default:
+        //         return false;
+        // }
+        return false;
     }
     
     public void changeFaceExpression(int emote) {
