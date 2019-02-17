@@ -28,6 +28,8 @@ import client.MapleClient;
 import client.command.Command;
 import server.maps.MapleMap;
 
+import java.util.Collection;
+
 public class WarpMapCommand extends Command {
     {
         setDescription("");
@@ -48,7 +50,9 @@ public class WarpMapCommand extends Command {
                 return;
             }
 
-            for (MapleCharacter victim : player.getMap().getCharacters()) {
+            Collection<MapleCharacter> characters = player.getMap().getAllPlayers();
+            
+            for (MapleCharacter victim : characters) {
                 victim.saveLocationOnWarp();
                 victim.changeMap(target, target.getRandomPlayerSpawnpoint());
             }

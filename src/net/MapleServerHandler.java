@@ -87,22 +87,15 @@ public class MapleServerHandler extends IoHandlerAdapter {
     }
     
     @Override
-    public void exceptionCaught(IoSession session, Throwable cause) throws Exception {
-        if (cause instanceof org.apache.mina.core.write.WriteToClosedSessionException) {
-            return;
-        }
-        
-        /*
-    	System.out.println("disconnect by exception");
-        cause.printStackTrace();
-        */
-        
-        if (cause instanceof IOException || cause instanceof ClassCastException) {
-            return;
-        }
-        MapleClient mc = (MapleClient) session.getAttribute(MapleClient.CLIENT_KEY);
-        if (mc != null && mc.getPlayer() != null) {
-            FilePrinter.printError(FilePrinter.EXCEPTION_CAUGHT, cause, "Exception caught by: " + mc.getPlayer());
+    public void exceptionCaught(IoSession session, Throwable cause) {
+        if (cause instanceof IOException) { // mina closes session automatically and does not call sessionClosed on IOException
+            session.closeNow(); // calls sessionClosed
+        } else {
+            MapleClient client = (MapleClient) session.getAttribute(MapleClient.CLIENT_KEY);
+            
+            if (client != null && client.getPlayer() != null) {
+                FilePrinter.printError(FilePrinter.EXCEPTION_CAUGHT, cause, "Exception caught by: " + client.getPlayer());
+            }
         }
     }
 

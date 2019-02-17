@@ -29,6 +29,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+import client.Skill;
 import net.server.Server;
 import net.server.channel.Channel;
 import net.server.guild.MapleGuild;
@@ -235,6 +236,15 @@ public class AbstractPlayerInteraction {
                 for(Double d: list) intList.add(d.intValue());
 
                 return intList;
+        }
+        
+        public boolean canHoldAll(List<Double> itemids) {
+                List<Double> quantity = new LinkedList<>();
+                for (int i = 0; i < itemids.size(); i++) {
+                        quantity.add(1.0);
+                }
+            
+                return canHoldAll(itemids, quantity);
         }
         
         public boolean canHoldAll(List<Double> itemids, List<Double> quantity) {
@@ -554,8 +564,6 @@ public class AbstractPlayerInteraction {
 
 			if(expires >= 0)
 				item.setExpiration(System.currentTimeMillis() + expires);
-                        
-                        item.setPetId(petId);
 
 			if (!MapleInventoryManipulator.checkSpace(c, id, quantity, "")) {
 				c.getPlayer().dropMessage(1, "Your inventory is full. Please remove an item from your " + ItemConstants.getInventoryType(id).name() + " inventory.");
@@ -836,7 +844,22 @@ public class AbstractPlayerInteraction {
 	}  
 
 	public void teachSkill(int skillid, byte level, byte masterLevel, long expiration) {
-		getPlayer().changeSkillLevel(SkillFactory.getSkill(skillid), level, masterLevel, expiration);
+	    teachSkill(skillid, level, masterLevel, expiration, false);
+    }
+
+	public void teachSkill(int skillid, byte level, byte masterLevel, long expiration, boolean force) {
+	    Skill skill = SkillFactory.getSkill(skillid);
+	    
+	    if (!force && level > -1) {
+            MapleCharacter.SkillEntry skillEntry = getPlayer().getSkills().get(skill);
+
+            if (skillEntry != null) {
+                getPlayer().changeSkillLevel(skill, (byte) Math.max(skillEntry.skillevel, level), Math.max(skillEntry.masterlevel, masterLevel), expiration == -1 ? -1 : Math.max(skillEntry.expiration, expiration));
+                return;
+            }
+        }
+        
+        getPlayer().changeSkillLevel(skill, level, masterLevel, expiration);
 	}
 
 	public void removeEquipFromSlot(short slot) {
@@ -1066,4 +1089,8 @@ public class AbstractPlayerInteraction {
         public void npcTalk(int npcid, String message) {
                 c.announce(MaplePacketCreator.getNPCTalk(npcid, (byte) 0, message, "00 00", (byte) 0));
         }
+
+    public long getCurrentTime() {
+	    return System.currentTimeMillis();
+    }    
 }
